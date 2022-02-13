@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 db = SQLAlchemy(app)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/hello')
 def hello():
